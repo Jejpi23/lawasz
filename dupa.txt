@@ -1,0 +1,79 @@
+Oto poradnik krok po kroku, jak zrealizować punkt V. Plan implementacji na systemie Windows:
+
+Konfiguracja środowiska programistycznego:
+
+Zainstaluj XAMPP: Przejdź na stronę https://www.apachefriends.org i pobierz najnowszą wersję XAMPP dla systemu Windows. Uruchom instalator i postępuj zgodnie z instrukcjami.
+Zainstaluj Composer: Przejdź na stronę https://getcomposer.org/download i pobierz najnowszą wersję Composer dla systemu Windows. Uruchom instalator i postępuj zgodnie z instrukcjami.
+Zainstaluj Node.js: Przejdź na stronę https://nodejs.org i pobierz najnowszą wersję Node.js dla systemu Windows. Uruchom instalator i postępuj zgodnie z instrukcjami.
+Zainstaluj MongoDB: Przejdź na stronę https://www.mongodb.com/try/download/community i pobierz najnowszą wersję MongoDB dla systemu Windows. Uruchom instalator i postępuj zgodnie z instrukcjami.
+Tworzenie projektu backendowego w Laravel:
+
+Otwórz terminal (np. PowerShell) i przejdź do folderu, w którym chcesz utworzyć projekt.
+Wpisz komendę composer create-project --prefer-dist laravel/laravel backend i naciśnij Enter. Zostanie utworzony nowy projekt Laravel w folderze o nazwie "backend".
+Konfiguracja bazy danych MongoDB:
+
+Uruchom XAMPP Control Panel i kliknij przycisk "Start" obok modułu "MongoDB".
+Otwórz przeglądarkę internetową i przejdź do adresu http://localhost:8080. Powinien wyświetlić się panel administracyjny MongoDB.
+Kliknij "Databases" w górnym menu, a następnie "Create Database". Wprowadź nazwę bazy danych (np. "library") i kliknij "Create".
+Edytuj plik konfiguracyjny Laravel:
+Przejdź do folderu "backend" utworzonego w poprzednim kroku.
+Znajdź plik ".env" i otwórz go w edytorze tekstu.
+Zmodyfikuj linie DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME i DB_PASSWORD według swoich ustawień MongoDB. Na przykład:
+makefile
+Copy code
+DB_CONNECTION=mongodb
+DB_HOST=127.0.0.1
+DB_PORT=27017
+DB_DATABASE=library
+DB_USERNAME=
+DB_PASSWORD=
+Zapisz plik ".env".
+Tworzenie projektu frontendowego w React:
+
+Otwórz terminal (np. PowerShell) i przejdź do folderu, w którym chcesz utworzyć projekt.
+Wpisz komendę npx create-react-app frontend i naciśnij Enter. Zostanie utworzony nowy projekt React w folderze o nazwie "frontend".
+Integracja frontendu z backendem:
+
+Przejdź do folderu "frontend" utworzonego w poprzednim kroku.
+Zainstaluj niezbędne paczki za pomocą komendy npm install axios.
+Otwórz plik "src/App.js" i zmodyfikuj go zgodnie z wymaganiami projektu, dodając funkcjonalności takie jak wyświetlanie danych, formularze itp.
+Komunikacja z backendem może odbywać się za pomocą biblioteki Axios. Możesz wykorzystać kod poniżej jako przykład:
+javascript
+Copy code
+import axios from 'axios';
+
+// Przykład pobierania danych
+axios.get('/api/authors')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+// Przykład dodawania danych
+const data = {
+  title: 'Example Book',
+  author: 'John Doe'
+};
+
+axios.post('/api/books', data)
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+Uruchomienie projektu:
+
+Uruchom XAMPP Control Panel i kliknij przycisk "Start" obok modułu "Apache".
+Otwórz nowe okno terminala (np. PowerShell) i przejdź do folderu "backend".
+Wpisz komendę php artisan serve i naciśnij Enter. Serwer backendowy zostanie uruchomiony.
+Otwórz nowe okno terminala (np. PowerShell) i przejdź do folderu "frontend".
+Wpisz komendę npm start i naciśnij Enter. Aplikacja frontendowa zostanie uruchomiona i wyświetli się w przeglądarce internetowej.
+Testowanie funkcjonalności:
+
+Przejdź do adresu http://localhost:3000 w przeglądarce, aby zobaczyć działającą aplikację.
+Sprawdź, czy wszystkie funkcjonalności zgodnie z wymaganiami projektu działają poprawnie, takie jak dodawanie, odczytywanie, aktualizowanie i usuwanie danych.
+Upewnij się, że walidacja formularzy działa poprawnie i informuje użytkownika o ewentualnych błędach.
+Gratulacje! Udało ci się zrealizować punkt V. Plan implementacji aplikacji przy użyciu systemu Windows. Teraz możesz kontynuować rozwój aplikacji, testowanie i dostosowywanie jej do swoich potrzeb.
